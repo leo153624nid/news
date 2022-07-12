@@ -1,9 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import rootReducer from './reducers/index'
 import logger from 'redux-logger'
-
-const rootReducer = combineReducers({
-    userData: userDataReducer,
-})
 
 const store = configureStore({
     reducer: rootReducer,
