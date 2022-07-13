@@ -1,4 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
+import { GET_POPULAR_NEWS } from '../constants'
 
 const initialState = {
     userId: null,
@@ -9,9 +10,9 @@ const initialState = {
     carusel: null,
 }
 
-const userDataReducer = createReducer(initialState, (builder) => {
+const newsReducer = createReducer(initialState, (builder) => {
     builder
-        .addCase(SET_USER_DATA, (state, action) => ({
+        .addCase(GET_POPULAR_NEWS, (state, action) => ({
             ...action.userData,
             carusel: [
                 action.userData.userCars[0],
@@ -22,4 +23,4 @@ const userDataReducer = createReducer(initialState, (builder) => {
         .addDefaultCase((state) => state)
 })
 
-export default userDataReducer
+export default newsReducer
