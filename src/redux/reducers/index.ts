@@ -1,11 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit'
-
-const test = (state = {}) => {
-    return state
-}
+import newsReducer from './newsReducer'
 
 const rootReducer = combineReducers({
-    userData: test,
+    news: newsReducer,
 })
 
 export default rootReducer
