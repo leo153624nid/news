@@ -7,7 +7,15 @@ const App = () => {
     const dispatch = useDispatch()
     console.log(store)
 
-    return <div className="App">hello world</div>
+    const handleGetNews = () => {
+        dispatch(getPopularNews())
+    }
+
+    return (
+        <div className="App">
+            <button onClick={handleGetNews}>get news</button>
+        </div>
+    )
 }
 
 export default App
