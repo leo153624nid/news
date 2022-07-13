@@ -1,8 +1,10 @@
 import { takeEvery } from 'redux-saga/effects'
 import { GET_POPULAR_NEWS } from '../constants'
+import { getLatestNews } from '../../api'
 
 export function* workerSaga() {
-    console.log('ok')
+    const data = yield getLatestNews()
+    console.log(data)
 }
 
 export function* watchClickSaga() {
