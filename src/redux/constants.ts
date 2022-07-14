@@ -1,1 +1,2 @@
-export const GET_POPULAR_NEWS: string = 'GET_POPULAR_NEWS'
+export const GET_LATEST_NEWS: string = 'GET_LATEST_NEWS'
+export const SET_LATEST_NEWS: string = 'SET_LATEST_NEWS'
