@@ -1,14 +1,21 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { GET_POPULAR_NEWS } from '../constants'
+import { GET_LATEST_NEWS, SET_LATEST_NEWS } from '../constants'
+import { ActionsType } from '../actions/actionCreator'
 
 const initialState = {
-    news: null,
+    latestNews: [] as Array<Object>,
 }
+
+type StateType = typeof initialState
 
 const newsReducer = createReducer(initialState, (builder) => {
     builder
-        .addCase(GET_POPULAR_NEWS, (state, action) => ({
-            state,
+        .addCase(GET_LATEST_NEWS, (state: StateType) => ({
+            ...state,
+        }))
+        .addCase(SET_LATEST_NEWS, (state: StateType, action: ActionsType) => ({
+            ...state,
+            latestNews: [...state.latestNews, ...action.payload],
         }))
         .addDefaultCase((state) => state)
 })
