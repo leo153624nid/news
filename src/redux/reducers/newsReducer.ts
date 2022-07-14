@@ -3,7 +3,7 @@ import { GET_LATEST_NEWS, SET_LATEST_NEWS } from '../constants'
 import { ActionsType } from '../actions/actionCreator'
 
 const initialState = {
-    latestNews: [] as Array<Object>,
+    latestNews: [] as Object[],
 }
 
 type StateType = typeof initialState
@@ -17,7 +17,7 @@ const newsReducer = createReducer(initialState, (builder) => {
             ...state,
             latestNews: [...state.latestNews, ...action.payload],
         }))
-        .addDefaultCase((state) => state)
+        .addDefaultCase((state: StateType) => state)
 })
 
 export default newsReducer
