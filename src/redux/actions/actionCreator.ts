@@ -1,11 +1,11 @@
 import { GET_LATEST_NEWS, SET_LATEST_NEWS } from '../constants'
 
-type AType<T> = T extends { [key: string]: infer U } ? U : any
-export type ActionsType = ReturnType<AType<typeof actions>>
+type InferValueTypes<T> = T extends { [key: string]: infer U } ? U : never
+export type ActionsType = ReturnType<InferValueTypes<typeof actions>>
 
 export const actions = {
     getLatestNews: () => ({ type: GET_LATEST_NEWS } as const),
-    setLatestNews: (payload: Object[]) =>
+    setLatestNews: (payload: any) =>
         ({
             type: SET_LATEST_NEWS,
             payload,
