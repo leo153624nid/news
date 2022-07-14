@@ -1,5 +1,5 @@
-import { takeEvery } from 'redux-saga/effects'
-import { GET_POPULAR_NEWS } from '../constants'
+import { takeEvery, put } from 'redux-saga/effects'
+import { GET_LATEST_NEWS } from '../constants'
 import { getLatestNews } from '../../api'
 
 export function* workerSaga() {
@@ -8,7 +8,7 @@ export function* workerSaga() {
 }
 
 export function* watchClickSaga() {
-    yield takeEvery(GET_POPULAR_NEWS, workerSaga)
+    yield takeEvery(GET_LATEST_NEWS, workerSaga)
 }
 
 export default function* rootSaga() {
