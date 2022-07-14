@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { getLatestNews } from './redux/actions/actionCreator'
+import { actions } from './redux/actions/actionCreator'
 import './App.css'
 
 const App = () => {
@@ -7,7 +7,7 @@ const App = () => {
     const dispatch = useDispatch()
 
     const handleGetNews = () => {
-        dispatch(getLatestNews())
+        dispatch(actions.getLatestNews())
     }
 
     return (
