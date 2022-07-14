@@ -1,14 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { getPopularNews } from './redux/actions/actionCreator'
+import { getLatestNews } from './redux/actions/actionCreator'
 import './App.css'
 
 const App = () => {
     const store = useSelector((store) => store)
     const dispatch = useDispatch()
-    console.log(store)
 
     const handleGetNews = () => {
-        dispatch(getPopularNews())
+        dispatch(getLatestNews())
     }
 
     return (
