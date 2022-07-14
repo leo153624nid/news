@@ -7,6 +7,6 @@ const axiosInstance = axios.create({
 export const getLatestNews = async () => {
     const request = await axiosInstance
         .get(`?query=react&tags=story&hitsPerPage=10&page=0`)
-        .then((response) => console.dir(response))
-    return await request.json
+        .then((response) => response.data)
+    return await request
 }
