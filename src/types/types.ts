@@ -30,4 +30,5 @@ export type NewsErrorState = {
 export interface NewsProps {
     news: NewsType[]
     label: string
+    error: string
 }
