@@ -29,14 +29,6 @@ export function* watchLatestNews() {
 export function* watchPopularNews() {
     yield takeEvery(GET_POPULAR_NEWS, handlePopularNews)
 }
-// export function* workerSagaNews() {
-//     yield spawn(handleLatestNews)
-//     yield spawn(handlePopularNews)
-// }
-
-// export function* watchClickSaga() {
-//     yield takeEvery(GET_NEWS, workerSagaNews)
-// }
 
 export default function* rootSaga() {
     yield all([fork(watchLatestNews), fork(watchPopularNews)])
