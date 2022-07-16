@@ -22,6 +22,11 @@ export type NewsState = {
     popularNews: NewsType[]
 }
 
+export type NewsErrorState = {
+    latestNewsError: string
+    popularNewsError: string
+}
+
 export interface NewsProps {
     news: NewsType[]
     label: string
