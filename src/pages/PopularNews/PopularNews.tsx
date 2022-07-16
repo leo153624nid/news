@@ -1,21 +1,26 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import News from '../../components/news/news'
+import { useAppSelector, useAppDispatch } from '../../redux/hooks/hooks'
+import News from '../../components/News/News'
 
-const App = () => {
-    const { popularNews } = useSelector((store) => store?.news || {})
-    const { popularNewsError } = useSelector((store) => store?.errors || {})
-    const dispatch = useDispatch()
+function PopularNews() {
+    const popularNews = useAppSelector((store) => store?.news.popularNews || [])
+    const popularNewsError = useAppSelector(
+        (store) => store?.errors.popularNewsError || ''
+    )
+    const dispatch = useAppDispatch()
 
     return (
         <div>
             <News
                 news={popularNews}
                 error={popularNewsError}
-                title="Popular News"
+                label="Popular News"
             />
         </div>
     )
 }
 
-export default App
+export default PopularNews
