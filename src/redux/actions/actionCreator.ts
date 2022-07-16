@@ -7,6 +7,7 @@ import {
     SET_POPULAR_NEWS,
     SET_POPULAR_NEWS_ERROR,
     SET_LATEST_NEWS_ERROR,
+    SET_LOADING_DATA,
 } from '../constants'
 import type { NewsType } from '../../types/types'
 
@@ -30,6 +31,10 @@ const actions = {
     }),
     setPopularNewsError: (payload: string) => ({
         type: SET_POPULAR_NEWS_ERROR,
+        payload,
+    }),
+    setLoadingData: (payload: boolean) => ({
+        type: SET_LOADING_DATA,
         payload,
     }),
 }

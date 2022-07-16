@@ -32,3 +32,7 @@ export interface NewsProps {
     label: string
     error: string
 }
+
+export type LoadingState = {
+    isLoading: boolean
+}

@@ -11,6 +11,8 @@ function PopularNews() {
     const popularNewsError = useAppSelector(
         (store) => store?.errors.popularNewsError || ''
     )
+
+    const isLoading = useAppSelector((store) => store?.loader.isLoading)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -19,11 +21,15 @@ function PopularNews() {
 
     return (
         <div>
-            <News
-                news={popularNews}
-                error={popularNewsError}
-                label="Popular News"
-            />
+            {isLoading ? (
+                <h3>Loading...</h3>
+            ) : (
+                <News
+                    news={popularNews}
+                    error={popularNewsError}
+                    label="Popular News"
+                />
+            )}
         </div>
     )
 }
