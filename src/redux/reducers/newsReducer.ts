@@ -1,23 +1,29 @@
-import { createReducer } from '@reduxjs/toolkit'
+import { createReducer, PayloadAction } from '@reduxjs/toolkit'
 import { GET_LATEST_NEWS, SET_LATEST_NEWS } from '../constants'
-import { ActionsType } from '../actions/actionCreator'
 
-const initialState = {
-    latestNews: [] as Object[],
+export type NewsType = {
+    id: string
+    story: string
 }
+type NewsState = { latestNews: NewsType[] }
 
-type StateType = typeof initialState
+const initialState: NewsState = {
+    latestNews: [],
+}
 
 const newsReducer = createReducer(initialState, (builder) => {
     builder
-        .addCase(GET_LATEST_NEWS, (state: StateType) => ({
+        .addCase(GET_LATEST_NEWS, (state) => ({
             ...state,
         }))
-        .addCase(SET_LATEST_NEWS, (state: StateType, action: ActionsType) => ({
-            ...state,
-            latestNews: [...state.latestNews, ...action.payload],
-        }))
-        .addDefaultCase((state: StateType) => state)
+        .addCase(
+            SET_LATEST_NEWS,
+            (state, action: PayloadAction<NewsType[]>) => ({
+                ...state,
+                latestNews: [...state.latestNews, ...action.payload],
+            })
+        )
+        .addDefaultCase((state) => state)
 })
 
 export default newsReducer
