@@ -12,6 +12,9 @@ const App: React.FC = () => {
     const popularNews = useAppSelector(
         (store) => store?.news?.popularNews || []
     )
+    const { latestNewsError, popularNewsError } = useAppSelector(
+        (store) => store?.errors || {}
+    )
     const dispatch = useAppDispatch()
 
     const handleGetNews = () => {
@@ -23,8 +26,16 @@ const App: React.FC = () => {
             <button type="button" onClick={handleGetNews}>
                 Get News
             </button>
-            <News news={latestNews} label="Latest News" />
-            <News news={popularNews} label="Popular News" />
+            <News
+                news={latestNews}
+                label="Latest News"
+                error={latestNewsError}
+            />
+            <News
+                news={popularNews}
+                label="Popular News"
+                error={popularNewsError}
+            />
         </div>
     )
 }
