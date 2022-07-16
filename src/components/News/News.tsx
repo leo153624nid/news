@@ -6,9 +6,9 @@ import React from 'react'
 import s from './News.module.css'
 import { NewsProps } from '../../types/types'
 
-const News: React.FC<NewsProps> = ({ news, label }) => {
+const News: React.FC<NewsProps> = ({ news, label, error }) => {
     if (!news || news.length === 0) {
-        return null
+        return error ? <h2>{error}</h2> : null
     }
 
     return (
