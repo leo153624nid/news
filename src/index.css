@@ -17,11 +17,11 @@ body {
     grid-auto-rows: auto 1fr auto;
 }
 
-main {
+.main {
     padding: 20px;
 }
 
-main .wrapper {
+.main .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
