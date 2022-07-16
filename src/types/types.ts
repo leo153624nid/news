@@ -17,7 +17,10 @@ export type NewsType = {
     _tags: object[] | null
 }
 
-export type NewsState = { latestNews: NewsType[] }
+export type NewsState = {
+    latestNews: NewsType[]
+    popularNews: NewsType[]
+}
 
 export interface NewsProps {
     news: NewsType[]

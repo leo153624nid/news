@@ -1,17 +1,26 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
-import { GET_LATEST_NEWS } from '../constants'
-import { getLatestNews } from '../../api/newsAPI'
+import { GET_NEWS } from '../constants'
+import { getNews, getPopularNews } from '../../api/newsAPI'
 import { actions } from '../actions/actionCreator'
 import { NewsType } from '../../types/types'
 
-export function* workerSaga() {
-    const data = (yield call(getLatestNews, 'react')) as NewsType[]
-    console.log(data)
+export function* handleLatestNews() {
+    const data = (yield call(getNews, 'typescript')) as NewsType[]
     yield put(actions.setLatestNews(data))
 }
 
+export function* handlePopularNews() {
+    const data = (yield call(getPopularNews)) as NewsType[]
+    yield put(actions.setPopularNews(data))
+}
+
+export function* workerSagaNews() {
+    yield call(handleLatestNews)
+    yield call(handlePopularNews)
+}
+
 export function* watchClickSaga() {
-    yield takeEvery(GET_LATEST_NEWS, workerSaga)
+    yield takeEvery(GET_NEWS, workerSagaNews)
 }
 
 export default function* rootSaga() {

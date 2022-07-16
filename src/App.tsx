@@ -5,13 +5,17 @@ import React from 'react'
 import { useAppSelector, useAppDispatch } from './redux/hooks/hooks'
 import { actions } from './redux/actions/actionCreator'
 import './App.css'
+import News from './components/News/News'
 
 const App: React.FC = () => {
-    const store = useAppSelector((state) => state)
+    const latestNews = useAppSelector((store) => store?.news?.latestNews || [])
+    const popularNews = useAppSelector(
+        (store) => store?.news?.popularNews || []
+    )
     const dispatch = useAppDispatch()
 
     const handleGetNews = () => {
-        dispatch(actions.getLatestNews())
+        dispatch(actions.getNews())
     }
 
     return (
@@ -19,6 +23,8 @@ const App: React.FC = () => {
             <button type="button" onClick={handleGetNews}>
                 Get News
             </button>
+            <News news={latestNews} label="Latest News" />
+            <News news={popularNews} label="Popular News" />
         </div>
     )
 }
