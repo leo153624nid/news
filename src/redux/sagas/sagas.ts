@@ -1,11 +1,11 @@
-import { takeEvery, put } from 'redux-saga/effects'
+import { takeEvery, put, call } from 'redux-saga/effects'
 import { GET_LATEST_NEWS } from '../constants'
 import { getLatestNews } from '../../api/newsAPI'
 import { actions } from '../actions/actionCreator'
-import { NewsType } from '../reducers/newsReducer'
+import { NewsType } from '../../types/types'
 
 export function* workerSaga() {
-    const data = (yield getLatestNews()) as NewsType[]
+    const data = (yield call(getLatestNews, 'react')) as NewsType[]
     console.log(data)
     yield put(actions.setLatestNews(data))
 }
