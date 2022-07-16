@@ -2,30 +2,29 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import React from 'react'
-import { Route } from 'react-router-dom'
-// import { useAppSelector, useAppDispatch } from './redux/hooks/hooks'
-// import { actions } from './redux/actions/actionCreator'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-// import News from './components/News/News'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
 import Home from './pages/Home/Home'
 import LatestNews from './pages/LatestNews/LatestNews'
 import PopularNews from './pages/PopularNews/PopularNews'
 
-const App: React.FC = () => {
-    return (
-        <>
-            <Header />
+const App: React.FC = () => (
+    <>
+        <Header />
 
+        <Routes>
             <Route path="/" element={<Home />} />
 
             <Route path="/latest-news" element={<LatestNews />} />
 
             <Route path="/popular-news" element={<PopularNews />} />
+        </Routes>
 
-            <Footer />
-        </>
-    )
-}
+        <Footer />
+    </>
+)
 
 // const App: React.FC = () => {
 //     const latestNews = useAppSelector((store) => store?.news?.latestNews || [])

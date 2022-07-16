@@ -1,5 +1,5 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit'
-import { GET_NEWS, SET_LATEST_NEWS, SET_POPULAR_NEWS } from '../constants'
+import { SET_LATEST_NEWS, SET_POPULAR_NEWS } from '../constants'
 import { NewsState, NewsType } from '../../types/types'
 
 const initialState: NewsState = {
@@ -9,9 +9,6 @@ const initialState: NewsState = {
 
 const newsReducer = createReducer(initialState, (builder) => {
     builder
-        .addCase(GET_NEWS, (state) => ({
-            ...state,
-        }))
         .addCase(
             SET_LATEST_NEWS,
             (state, action: PayloadAction<NewsType[]>) => ({
