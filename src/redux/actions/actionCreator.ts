@@ -1,5 +1,5 @@
 import { GET_LATEST_NEWS, SET_LATEST_NEWS } from '../constants'
-import type { NewsType } from '../reducers/newsReducer'
+import type { NewsType } from '../../types/types'
 
 // type InferValueTypes<T> = T extends { [key: string]: infer U } ? U : never
 // export type ActionsType = ReturnType<InferValueTypes<typeof actions>>
