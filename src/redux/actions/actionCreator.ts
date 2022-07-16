@@ -11,11 +11,3 @@ export const actions = {
         } as const),
     getLatestNews: () => ({ type: GET_LATEST_NEWS } as const),
 }
-
-// export const getLatestNews = () => ({ type: GET_LATEST_NEWS } as const)
-
-// export const setLatestNews = (payload: Array<Object>) =>
-//     ({
-//         type: SET_LATEST_NEWS,
-//         payload,
-//     } as const)
