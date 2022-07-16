@@ -1,22 +1,30 @@
-import { takeEvery, put, call, fork } from 'redux-saga/effects'
+import { takeEvery, put, call, spawn } from 'redux-saga/effects'
 import { GET_NEWS } from '../constants'
 import { getNews, getPopularNews } from '../../api/newsAPI'
 import { actions } from '../actions/actionCreator'
 import { NewsType } from '../../types/types'
 
 export function* handleLatestNews() {
-    const data = (yield call(getNews, 'typescript')) as NewsType[]
-    yield put(actions.setLatestNews(data))
+    try {
+        const data = (yield call(getNews, 'typescript')) as NewsType[]
+        yield put(actions.setLatestNews(data))
+    } catch (error) {
+        yield put(actions.setLatestNewsError('Error downloading Latest News'))
+    }
 }
 
 export function* handlePopularNews() {
-    const data = (yield call(getPopularNews)) as NewsType[]
-    yield put(actions.setPopularNews(data))
+    try {
+        const data = (yield call(getPopularNews)) as NewsType[]
+        yield put(actions.setPopularNews(data))
+    } catch (error) {
+        yield put(actions.setPopularNewsError('Error downloading Popular News'))
+    }
 }
 
 export function* workerSagaNews() {
-    yield fork(handleLatestNews)
-    yield fork(handlePopularNews)
+    yield spawn(handleLatestNews)
+    yield spawn(handlePopularNews)
 }
 
 export function* watchClickSaga() {
