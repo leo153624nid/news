@@ -4,6 +4,7 @@
 import { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../../redux/hooks/hooks'
 import News from '../../components/News/News'
+import actions from '../../redux/actions/actionCreator'
 
 function LatestNews() {
     const latestNews = useAppSelector((store) => store?.news?.latestNews || [])
@@ -11,6 +12,10 @@ function LatestNews() {
         (store) => store?.errors.latestNewsError || ''
     )
     const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(actions.getLatestNews())
+    }, [dispatch])
 
     return (
         <div>

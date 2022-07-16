@@ -1,5 +1,8 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import {
-    GET_NEWS,
+    GET_LATEST_NEWS,
+    GET_POPULAR_NEWS,
     SET_LATEST_NEWS,
     SET_POPULAR_NEWS,
     SET_POPULAR_NEWS_ERROR,
@@ -10,8 +13,9 @@ import type { NewsType } from '../../types/types'
 // type InferValueTypes<T> = T extends { [key: string]: infer U } ? U : never
 // export type ActionsType = ReturnType<InferValueTypes<typeof actions>>
 
-export const actions = {
-    getNews: () => ({ type: GET_NEWS } as const),
+const actions = {
+    getLatestNews: () => ({ type: GET_LATEST_NEWS }),
+    getPopularNews: () => ({ type: GET_POPULAR_NEWS }),
     setLatestNews: (payload: NewsType[]) => ({
         type: SET_LATEST_NEWS,
         payload,
@@ -29,3 +33,5 @@ export const actions = {
         payload,
     }),
 }
+
+export default actions
