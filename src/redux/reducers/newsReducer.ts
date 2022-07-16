@@ -16,14 +16,14 @@ const newsReducer = createReducer(initialState, (builder) => {
             SET_LATEST_NEWS,
             (state, action: PayloadAction<NewsType[]>) => ({
                 ...state,
-                latestNews: [...state.latestNews, ...action.payload],
+                latestNews: [...action.payload],
             })
         )
         .addCase(
             SET_POPULAR_NEWS,
             (state, action: PayloadAction<NewsType[]>) => ({
                 ...state,
-                popularNews: [...state.popularNews, ...action.payload],
+                popularNews: [...action.payload],
             })
         )
         .addDefaultCase((state) => state)
