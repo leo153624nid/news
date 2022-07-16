@@ -1,4 +1,4 @@
-import { takeEvery, put, call } from 'redux-saga/effects'
+import { takeEvery, put, call, fork } from 'redux-saga/effects'
 import { GET_NEWS } from '../constants'
 import { getNews, getPopularNews } from '../../api/newsAPI'
 import { actions } from '../actions/actionCreator'
@@ -15,8 +15,8 @@ export function* handlePopularNews() {
 }
 
 export function* workerSagaNews() {
-    yield call(handleLatestNews)
-    yield call(handlePopularNews)
+    yield fork(handleLatestNews)
+    yield fork(handlePopularNews)
 }
 
 export function* watchClickSaga() {
