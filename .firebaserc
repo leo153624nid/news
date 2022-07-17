@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "news-7434b"
-  }
+    "default": "news-7434b",
+    "news": "news-f0a02"
+  },
+  "targets": {},
+  "etags": {}
 }
