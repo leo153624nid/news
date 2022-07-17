@@ -4,7 +4,7 @@ import axios from 'axios'
 import { NewsType } from '../types/types'
 
 const axiosInstance = axios.create({
-    baseURL: 'http://hn.algolia.com/api/v1/search',
+    baseURL: 'https://hn.algolia.com/api/v1/search',
 })
 
 export const getNews = async (searchQuery: string) => {
