@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import { takeEvery, put, call, all, fork } from 'redux-saga/effects'
 import { GET_LATEST_NEWS, GET_POPULAR_NEWS } from '../constants'
 import { getNews, getPopularNews } from '../../api/newsAPI'
