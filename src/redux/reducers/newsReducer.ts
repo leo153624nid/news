@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 import { createReducer, PayloadAction } from '@reduxjs/toolkit'
 import { SET_LATEST_NEWS, SET_POPULAR_NEWS } from '../constants'
 import { NewsState, NewsType } from '../../types/types'
